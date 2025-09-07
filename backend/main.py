@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from google import genai
 from dotenv import load_dotenv
@@ -15,6 +16,20 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Initialize ProfanityFilter
 pf = ProfanityFilter()
+
+# CORS setup
+origins = [
+    "http://localhost:5173",  
+    "https://chatbot-black-delta.vercel.app"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,        # Which domains can access
+    allow_credentials=True,       # Allow cookies
+    allow_methods=["*"],          # GET, POST, PUT, DELETE
+    allow_headers=["*"],          # Headers like Authorization
+)
 
 class UserMessage(BaseModel):
     message: str
@@ -42,7 +57,7 @@ async def chat(msg: UserMessage):
         # 4️⃣ Filter Gemini API response
         clean_response = pf.censor(gemini_response)
 
-        return {"response": clean_response}
+        return {"message": clean_response, "success": True}
 
     except Exception as e:
         return {"response": f"An error occurred: {e}"}
