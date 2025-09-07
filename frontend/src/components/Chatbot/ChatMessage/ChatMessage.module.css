@@ -1,0 +1,284 @@
+.message {
+  display: flex;
+  margin-bottom: 16px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.messageContent {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.messageContent.user {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.messageContent.bot {
+  background: #f1f3f5;
+  color: #333;
+  border-bottom-left-radius: 4px;
+}
+
+.messageText {
+  margin: 0;
+}
+
+/* React-Markdown Component Styles */
+.heading1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.heading2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.heading3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.paragraph {
+  margin: 0 0 8px 0;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.inlineCode {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.messageContent.user .inlineCode {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.codeBlock {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 12px;
+  margin: 8px 0;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.messageContent.user .codeBlock {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.list,
+.orderedList {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.listItem {
+  margin: 4px 0;
+}
+
+.blockquote {
+  border-left: 3px solid #667eea;
+  padding-left: 12px;
+  margin: 8px 0;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.messageContent.user .blockquote {
+  border-left-color: rgba(255, 255, 255, 0.5);
+}
+
+.link {
+  color: #667eea;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+}
+
+.link:hover {
+  border-bottom-color: #667eea;
+}
+
+.messageContent.user .link {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.messageContent.user .link:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.timestamp {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+.timestamp.user {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.messageContent.user .tableContainer {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.table {
+  width: 100%;
+  min-width: 300px; /* Minimum width to trigger scroll */
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 0;
+}
+
+.tableHead {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.messageContent.user .tableHead {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tableHeader {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.messageContent.user .tableHeader {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.tableCell {
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.messageContent.user .tableCell {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.tableRow:hover .tableCell {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.messageContent.user .tableRow:hover .tableCell {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Custom scrollbar for table container */
+.tableContainer::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tableContainer::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.messageContent.user .tableContainer::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.messageContent.user .tableContainer::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.messageContent.user .tableContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.timestamp {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+.timestamp.user {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

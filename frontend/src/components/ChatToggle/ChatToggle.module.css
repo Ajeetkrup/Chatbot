@@ -1,0 +1,32 @@
+.chatToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+  color: white;
+  font-size: 24px;
+}
+
+.chatToggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.chatToggle:active {
+  transform: scale(0.95);
+}
+
+.chatToggle.open {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
